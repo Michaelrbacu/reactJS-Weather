@@ -37,6 +37,7 @@ function App() {
   const handleDropdownClick = (city) => {
     setQuery(city);
     setShowDropdown(false);
+    
   };
 
   const dateBuilder = (d) => {
