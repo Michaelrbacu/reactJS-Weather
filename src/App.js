@@ -120,6 +120,8 @@ function App() {
             <div className="weather-box">
               <div className="temp">
                 {Math.round(weather.main.temp)}°c
+                <br></br>
+                {Math.round(weather.main.temp*(9/5)+32)}°F
               </div>
               <div className="weather">{weather.weather[0].main}</div>
             </div>
