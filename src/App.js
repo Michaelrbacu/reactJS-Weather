@@ -6,6 +6,7 @@ const api = {
 };
 
 const popularCities = [
+  "Greer",
   "London",
   "New York",
   "Paris",
@@ -22,6 +23,7 @@ function App() {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const search = () => {
+    
     setShowDropdown(false);
     fetch(`${api.base}weather?q=${query}&appid=${api.key}&units=metric`)
       .then((res) => res.json())
@@ -30,6 +32,19 @@ function App() {
         setQuery('');
         console.log(result);
       });
+  };
+
+  
+
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      search();
+    }
+  };
+
+  const handleChange = (event) => {
+    setQuery(event.target.value);
   };
 
   const handleDropdownClick = (city) => {
@@ -74,6 +89,7 @@ function App() {
     setShowDropdown(true);
   };
 
+  
   return (
     <div className={(typeof weather.main !== "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
       <main>
@@ -83,19 +99,17 @@ function App() {
               type="text"
               className="search-bar"
               placeholder="Search..."
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={handleChange}
               value={query}
+              onKeyDown={handleKeyPress}
               onFocus={handleSearchBarFocus}
             />
-            <button className="search-button" onClick={search}>
-              Search
-            </button>
-            <button className="search-button" onClick={search}>
-              Weekly
-            </button>
-            <button className="search-button" onClick={search}>
-              Monthly
-            </button>
+<div className="header-bar">
+      <button className="search-button" onClick={search}>
+        Search
+      </button>
+
+    </div>
           </div>
           {showDropdown && (
             <div className="dropdown">
@@ -123,11 +137,25 @@ function App() {
                 <br></br>
                 {Math.round(weather.main.temp*(9/5)+32)}°F
               </div>
-              <div className="weather">{weather.weather[0].main}</div>
+              <div className="weather">{weather.weather[0].description}</div> 
+              <div className="weather">Minimum:{weather.main.temp_min}</div> 
+              <div className="weather">Maximum:{weather.main.temp_max}</div> 
+              <div className="weather">Visibility:{weather.visibility}<h10> Visibility, meter. The maximum value of the visibility is 10km</h10></div> 
+
+              <div className='weather'>Humidity:{weather.main.humidity}</div>
+              <div className='weather'>Wind Speed:{weather.wind.speed}</div>
+              <div className='weather'>Cloudiness:{weather.clouds.all}%</div>
+
+
             </div>
           </div>
         ) : ('')}
+        
       </main>
+
+      <div>
+
+      </div>
     </div>
   );
 }
