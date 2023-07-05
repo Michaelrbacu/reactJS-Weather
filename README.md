@@ -1,4 +1,5 @@
 Weather App
+
 A simple weather application built with React.js that allows users to search for the current weather information of a city.
 
 Features
