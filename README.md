@@ -10,4 +10,4 @@ A simple weather application built with React.js that allows users to search for
 - **Dropdown with popular cities for easy selection.**
 - **Background image changes based on the temperature (warm or cold).**
 
-The Weather App was built off a simple template in order to practice some JS.
+The Weather App was built in order to practice some JS.
