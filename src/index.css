@@ -156,7 +156,8 @@
   }
   .weather-box2 {
 	text-align: center;
-	position: right;
+	position: relative;
+	right: 0;
 	margin: 30px auto;
 	background-color: rgba(255, 255, 255, 0.2);
 	border-radius: 16px;
@@ -166,7 +167,9 @@
 	font-size: 24px;
 	font-weight: 700;
 	text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+	
   }
+  
   .weather-box {
 	text-align: center;
   }

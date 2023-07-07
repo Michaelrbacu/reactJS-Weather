@@ -137,20 +137,25 @@ function App() {
                 <br></br>
                 {Math.round(weather.main.temp*(9/5)+32)}°F
               </div>
+              
+              </div>
+
               <div className="weather-box2">
                 <div>{weather.weather[0].description}</div> 
               <div>High: {Math.round(weather.main.temp_min*(9/5)+32)} °F  &nbsp; &nbsp; &nbsp; Low: {Math.round(weather.main.temp_max*(9/5)+32)} °F</div> 
               </div>
-              
-               </div>
-<div className="weather-box2">
-              <div>Humidity: {weather.main.humidity} &nbsp; &nbsp;   Wind Speed: {weather.wind.speed} &nbsp; &nbsp;  Cloudiness: {weather.clouds.all}%</div>
+               
+              <div className="weather-box2">
+                            <div>Humidity: {weather.main.humidity} &nbsp; &nbsp;    &nbsp; &nbsp;  Cloudiness: {weather.clouds.all}%</div>
+              </div>
+              <div className="weather-box2"> 
+                <div>Wind Speed: {weather.wind.speed}  &nbsp; &nbsp; Wind Direction: {weather.wind.deg} </div>
+              </div>
+
+
 </div>
-              
-
-
             
-          </div>
+          
         ) : ('')}
         
       </main>
