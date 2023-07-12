@@ -88,8 +88,8 @@ function App() {
   const handleSearchBarFocus = () => {
     setShowDropdown(true);
   };
-
-  
+            var today = new Date();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   return (
     <div className={(typeof weather.main !== "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
       <main>
@@ -126,10 +126,13 @@ function App() {
           )}
         </div>
         {(typeof weather.main !== "undefined") ? (
+            
+          
           <div>
+            
             <div className="location-box">
               <div className="location">{weather.name}, {weather.sys.country}</div>
-              <div className="date">{dateBuilder(new Date())}</div>
+              <div className="date">{dateBuilder(new Date()) + " " + (time)}</div>
             </div>
             <div className="weather-box">
               <div className="temp">
